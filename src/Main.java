@@ -1,15 +1,49 @@
+import Product.Cart;
+import Product.ProductMain;
+
+import java.util.Locale;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Locale.setDefault(Locale.US);
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        ProductMain productMainInstance = null;
+        Cart productCart = null;
+
+
+        int quantity;
+
+        System.out.println("Enter quantity of products to be added at the cart: ");
+        quantity = scanner.nextInt();
+
+       for(int index = 0; index <= quantity ; index++){
+
+           System.out.println("Product Name: ");
+           scanner.next();
+           String productName = scanner.nextLine();
+           System.out.println("Product value: ");
+           double productValue = scanner.nextDouble();
+           System.out.println("Product Quantity: ");
+           int productQuantity = scanner.nextInt();
+
+            productMainInstance = new ProductMain(productName, productQuantity, productValue);
+             productCart = new Cart(productMainInstance);
+            productCart.addProductToCart(productMainInstance);
+
+       }
+
+       productCart.showCartProducts();
+
+
+
+
+
+
+
+        scanner.close();
     }
 }
