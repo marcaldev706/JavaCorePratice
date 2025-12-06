@@ -1,5 +1,6 @@
-import Hotel.CheckinHotelBeiraMar;
-import Hotel.Hotel_Type;
+
+import Product.CartProduct;
+import Product.ProductMain;
 
 import java.util.Locale;
 
@@ -9,10 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
 
-                CheckinHotelBeiraMar checkingClient
-                = new CheckinHotelBeiraMar(Hotel_Type.LUXURY, 5, 8);
 
-                checkingClient.showInfoAboutYourStaying();
-                checkingClient.showIndexAvailable();
+
+
     }
 }
